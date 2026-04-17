@@ -31,12 +31,12 @@ export default function ProductList({products}: Props) {
                 <Button label='paket' onClick={() => handleFilter('paket')} />
                 <Button label='frame' onClick={() => handleFilter('frame')} />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4 m-4">
+            <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4 m-4 items-center">
                 {filteredProducts.map((prod) => (
                     <Link key={prod.id} href={`/products/${prod.id}`}>
-                    <div key={prod.id}>
-                        <Card product={prod} />
-                    </div>
+                        <div key={prod.id}>
+                            <Card product={prod} />
+                        </div>
                     </Link>
                 ))}
             </div>
