@@ -7,9 +7,8 @@ interface CardProps {
 
 export default function Card({ product }: CardProps) {
     return (
-        <>
-        <div className="flex flex-col max-w-72">
-        {/* {product.image_url &&
+        <div className="flex flex-col lg:max-w-80 cursor-pointer">
+            {/* {product.image_url &&
             <div className="">
                 <Image 
                     src={product.image_url} 
@@ -21,12 +20,11 @@ export default function Card({ product }: CardProps) {
                 />
             </div> 
         } */}
-        <div className="p-4 mb-10 border-b shadow-md bg-white rounded-sm">
-            <div>{product.name}</div>
-            <div className="line-clamp-1">{product.description}</div>
-            <div className="text-right">{product.price}</div>
+            <div className="p-4 mb-10 border-b shadow-md bg-white rounded-sm overflow-hidden h-36 max-h-36 flex flex-col">
+                <div>{product.name}</div>
+                <div className="line-clamp-1 text-gray-600">{product.description}</div>
+                <div className="mt-auto text-right">Rp. {product.price}</div>
+            </div>
         </div>
-        </div>
-        </>
     )
 }

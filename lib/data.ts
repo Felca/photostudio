@@ -1,4 +1,4 @@
-import { createClient } from "./supabase/server";
+import { createClient } from './supabase/server'
 
 // export interface Product {
 //     id: string
@@ -13,37 +13,44 @@ import { createClient } from "./supabase/server";
 // }
 
 export interface Product {
-    id: string
-    name: string
-    description?: string
-    price: string
-    category: string
-    image_url?: string
+  id: string
+  name: string
+  description?: string
+  price: string
+  category: string
+  image_url?: string
+}
+
+export interface OrderTest {
+  product_items: [
+    {
+      product: Product
+      count: number
+    },
+  ]
 }
 
 export async function getProducts(): Promise<Product[]> {
-    const supabase = await createClient()
-    const {data, error} = await supabase
-        .from('Products')
-        .select()
+  const supabase = await createClient()
+  const { data, error } = await supabase.from('Products').select()
 
-    if(error) throw error
-    // console.log(data)
+  if (error) throw error
+  // console.log(data)
 
-    return data as Product[]
+  return data as Product[]
 }
 
 export async function getProductById(product_id: string) {
   const supabase = await createClient()
 
   const { data, error } = await supabase
-        .from("Products")
-        .select()
-        .eq("id", product_id)
-        .single()
+    .from('Products')
+    .select()
+    .eq('id', product_id)
+    .single()
 
-  if (error) throw error;
-  console.log(data)
+  if (error) throw error
+  //   console.log(data)
 
-  return data as Product;
+  return data as Product
 }

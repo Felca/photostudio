@@ -8,9 +8,9 @@ export default function Counter() {
     return (
         <>
         <div className="flex gap-4">
-            <Button label="-" onClick={() => setCount(count-1)} />
+            <Button label="-" onClick={() => setCount(prev => Math.max(0, prev - 1))} />
             {count}
-            <Button label="+" onClick={() => setCount(count+1)} />
+            <Button label="+" onClick={() => setCount(prev => Math.min(prev+1, 99))} />
         </div>
         </>
     )

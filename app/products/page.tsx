@@ -11,7 +11,7 @@ export default async function ProductPage() {
     return (
         <Suspense fallback={<div>loading...</div>}>
             <div className="m-2">
-                <ProductList products={products}/>
+                <ProductList products={products} key={null} />
             </div>
         </Suspense>
     )
