@@ -16,23 +16,25 @@ export interface Product {
   id: string
   name: string
   description?: string
-  price: string
+  price: number
   category: string
   image_url?: string
 }
 
+export interface OrderItem {
+  product: Product
+  count: number
+}
+
 export interface Order {
-  product_items: [
-    {
-      product: Product
-      count: number
-    },
-  ]
+  id: string
+  product_items: OrderItem[]
+  created_at?: string
 }
 
 export interface User {
   id: string
-  Order: Order | null
+  orders: Order[]
 }
 
 export async function getProducts(): Promise<Product[]> {
