@@ -50,7 +50,7 @@ export default async function ProductDetail({ params }: Props) {
             }
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti laboriosam, assumenda sapiente exercitationem culpa voluptatem porro dolore soluta nobis! Nemo praesentium odit quam pariatur quibusdam ducimus enim non! Maiores, consequuntur.</p>
-            <Button label="Yipee" classname="mt-10 py-2 text-center" />
+            <Button label="Add to cart (not yet implemented)" classname="mt-10 py-2 text-center" />
         </div>
     )
 }
