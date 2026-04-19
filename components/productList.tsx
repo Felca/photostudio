@@ -41,16 +41,20 @@ export default function ProductList({ products }: Props) {
         <div>
             <div className="flex gap-2 m-4">
                 {categories.map(c => (
-                    <Button label={c} onClick={() => handleClick(c)} isActive={isActiveCategory === c} />
+                    <Button 
+                        key={c} label={c} 
+                        onClick={() => handleClick(c)} 
+                        isActive={isActiveCategory === c} 
+                    />
                 ))}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4 m-4 items-center">
                 {filteredProducts.map((prod) => (
-                    <Link key={prod.id} href={`/products/${prod.id}`}>
-                        <div key={prod.id} onClick={() => setSelectedProduct(prod)}>
+                    <div key={prod.id} onClick={() => setSelectedProduct(prod)}>
+                        <Link href={`/products/${prod.id}`}>
                             <Card product={prod} />
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 ))}
             </div>
         </div>

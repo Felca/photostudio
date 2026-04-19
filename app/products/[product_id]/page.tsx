@@ -1,7 +1,7 @@
 import Counter from "@/components/counter"
 import Dropdown from "@/components/dropdown"
 import Button from "@/components/ui/button"
-import { getProductById } from "@/lib/data"
+import { getProductById, User } from "@/lib/data"
 import Link from "next/link"
 
 type Props = {
@@ -19,6 +19,11 @@ export default async function ProductDetail({ params }: Props) {
     const isCetak = product.category.match('cetak')
     const isPaket = product.category.match('paket')
 
+    // const user: User = { id: '1', Order: null }
+    // const handleOrder = () => {
+    //     user.Order?.product_items.push(product, count)
+    // }
+
     return (
         <div className={"m-10"}>
             <Link href={'/products'}>
@@ -35,7 +40,7 @@ export default async function ProductDetail({ params }: Props) {
 
             {isFrame &&
                 <div className="flex flex-col justify-center w-full mb-10">
-                    <Dropdown placeholder={"Choose size"} items={[
+                    <Dropdown placeholder={"Frame Size"} items={[
                         { label: 'Choose a size..', value: null },
                         { label: '10R', value: '10R' },
                         { label: '16R', value: '16R' },

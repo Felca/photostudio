@@ -8,7 +8,6 @@ import {
   SelectLabel
 } from "@/components/ui/select"
 import Button from "./ui/button"
-import { ChevronDown } from "lucide-react"
 
 type DropdownProps = {
     placeholder: string

@@ -21,13 +21,18 @@ export interface Product {
   image_url?: string
 }
 
-export interface OrderTest {
+export interface Order {
   product_items: [
     {
       product: Product
       count: number
     },
   ]
+}
+
+export interface User {
+  id: string
+  Order: Order | null
 }
 
 export async function getProducts(): Promise<Product[]> {
