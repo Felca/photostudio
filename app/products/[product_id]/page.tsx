@@ -1,7 +1,7 @@
 import Counter from "@/components/counter"
 import Dropdown from "@/components/dropdown"
 import Button from "@/components/ui/button"
-import { getProductById, User } from "@/lib/data"
+import { getProductById } from "@/lib/data"
 import Link from "next/link"
 
 type Props = {
@@ -18,12 +18,7 @@ export default async function ProductDetail({ params }: Props) {
     const isFrame = product.category.match('frame')
     const isCetak = product.category.match('cetak')
     const isPaket = product.category.match('paket')
-
-    // const user: User = { id: '1', Order: null }
-    // const handleOrder = () => {
-    //     user.Order?.product_items.push(product, count)
-    // }
-
+    
     return (
         <div className={"m-10"}>
             <Link href={'/products'}>

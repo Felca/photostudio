@@ -29,12 +29,12 @@ const contents: ContentNav[] = [
     {
         id: '1',
         href: '/',
-        title: 'Item',
+        title: 'products',
     },
     {
         id: '2',
-        href: '/',
-        title: 'Item',
+        href: '/orders',
+        title: 'orders',
     },
     {
         id: '3',

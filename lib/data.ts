@@ -1,17 +1,4 @@
 import { createClient } from './supabase/server'
-
-// export interface Product {
-//     id: string
-//     category_id?: string | null
-//     subcategory_id?: string | null
-//     name: string
-//     description?: string | null;
-//     price: number
-//     is_available: boolean
-//     created_at: Date
-//     image_url?: string | null
-// }
-
 export interface Product {
   id: string
   name: string
@@ -21,15 +8,13 @@ export interface Product {
   image_url?: string
 }
 
-export interface OrderItem {
-  product: Product
+export type OrderItem = {
+  product: Product | null
   count: number
 }
-
 export interface Order {
-  id: string
   product_items: OrderItem[]
-  created_at?: string
+  // created_at?: string
 }
 
 export interface User {
@@ -39,7 +24,7 @@ export interface User {
 
 export async function getProducts(): Promise<Product[]> {
   const supabase = await createClient()
-  const { data, error } = await supabase.from('Products').select()
+  const { data, error } = await supabase.from('products').select()
 
   if (error) throw error
   // console.log(data)
@@ -51,7 +36,7 @@ export async function getProductById(product_id: string) {
   const supabase = await createClient()
 
   const { data, error } = await supabase
-    .from('Products')
+    .from('products')
     .select()
     .eq('id', product_id)
     .single()
@@ -61,3 +46,6 @@ export async function getProductById(product_id: string) {
 
   return data as Product
 }
+
+// vercel link:
+// https://photostudio-rfs.vercel.app/
