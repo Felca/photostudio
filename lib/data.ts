@@ -8,11 +8,13 @@ export interface Product {
   image_url?: string
 }
 
+// product, count -> orderItem -> orders
 export type OrderItem = {
   product: Product | null
   count: number
 }
 export interface Order {
+  id: string
   product_items: OrderItem[]
   // created_at?: string
 }

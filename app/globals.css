@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 /*
 ---break---
 */
@@ -60,7 +60,7 @@ Posted by rmurph46, modified by community. See post 'Timeline' for change histor
 Retrieved 2026-04-16, License - CC BY-SA 3.0
 */
 
-/* .marquee {
+.marquee {
   margin: 0 auto;
   white-space: nowrap;
   overflow: hidden;
@@ -72,7 +72,7 @@ Retrieved 2026-04-16, License - CC BY-SA 3.0
   padding-left: 100%;
   animation: marquee 15s linear infinite;
   animation-delay: 2.5s;
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
 }
 
 .marquee:hover span {
@@ -86,48 +86,8 @@ Retrieved 2026-04-16, License - CC BY-SA 3.0
   100% {
     transform: translate(-100%, 0);
   }
-} */
-
-/*
-Source - https://stackoverflow.com/a/77985588
-Posted by Gerard Reches, modified by community. See post 'Timeline' for change history
-Retrieved 2026-04-17, License - CC BY-SA 4.0
-*/
-
-/* Core functionality */
-#animated-text-strip{
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  overflow: hidden;
-}
-#animated-text-strip .marquee {
-  white-space: nowrap;
-  animation: marquee 5s linear infinite;
-  max-width: none;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-100%, 0);
-  }
-}
-
-/* Styles for the sake of the demonstration */
-#animated-text-strip{
-  background:black;
-  padding: 1rem 0;
-}
-.marquee{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: white;
-}
 /*
 ---break---
 */
