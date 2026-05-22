@@ -4,26 +4,39 @@ import Button from "./ui/button"
 import Dropdown from "./dropdown"
 import Counter from "./counter"
 import { XIcon } from "lucide-react"
+import Image from "next/image"
+import { useMediaQuery } from "usehooks-ts"
 
 type Props = {
     selectedProduct: Product
 }
 
 export default function ProductDetailCard({ selectedProduct }: Props) {
+    const isMobile = useMediaQuery("(max-width : 768px)")
+
     const isFrame = selectedProduct.category.match('frame')
     const isCetak = selectedProduct.category.match('cetak')
     const isPaket = selectedProduct.category.match('paket')
 
     return (
         <>
-            <div className={"m-10 max-h-125"}>
-                <Link href={'/products'}>
+            <div className={isMobile ? "m-10 max-h-125" : "m-0 mx-10"}>
+                {isMobile && <Link href={'/products'}>
                     <Button label="Back" classname="inline-block" />
-                </Link>
+                </Link>}
 
                 <div className="my-10 flex items-end gap-5 border-b pb-5">
                     <div className="flex flex-col gap-2">
                         <p className="text-6xl font-mono">{selectedProduct.name}</p>
+                        <div className="flex justify-center">
+                            <Image
+                                src={'/placeholder.png'}
+                                alt={'product-image'}
+                                width={20}
+                                height={20}
+                                className="w-full max-h-96 border object-scale-down"
+                            />
+                        </div>
                         <p className="text-2xl">Rp {selectedProduct.price}</p>
                     </div>
                     <div className="ml-auto"><Counter /></div>

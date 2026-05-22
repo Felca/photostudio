@@ -29,7 +29,7 @@ export async function getProducts(): Promise<Product[]> {
   const { data, error } = await supabase.from('products').select()
 
   if (error) throw error
-  // console.log(data)
+  console.log(data)
 
   return data as Product[]
 }
@@ -44,7 +44,7 @@ export async function getProductById(product_id: string) {
     .single()
 
   if (error) throw error
-  //   console.log(data)
+    console.log(data)
 
   return data as Product
 }

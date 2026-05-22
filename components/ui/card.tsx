@@ -36,7 +36,7 @@ export default function Card({ product }: CardProps) {
             />
             <div className="p-4 mb-10 border-b shadow-md bg-white rounded-sm overflow-hidden h-36 max-h-36 flex flex-col">
                 <div>{product.name}</div>
-                <div className="line-clamp-1 text-gray-600">{product.description}</div>
+                {/* <div className="line-clamp-1 text-gray-600">{product.description}</div> */}
                 <div className="mt-auto text-right">Rp. {product.price}</div>
             </div>
         </div>

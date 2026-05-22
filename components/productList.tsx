@@ -19,7 +19,7 @@ export default function ProductList({ products }: Props) {
     const isMobile = useMediaQuery("(max-width : 768px)")
 
     const [filteredProducts, setFilteredProducts] = useState(products)
-    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null) // show in list?
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
     const [isActiveCategory, setIsActiveCategory] = useState<string | null>(null)
 
     const handleFilter = (value: string) => {
@@ -41,9 +41,11 @@ export default function ProductList({ products }: Props) {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            {!isMobile && selectedProduct && (
-                <ProductDetailCard selectedProduct={selectedProduct} />
-            )}
+            <div className="max-w-2/3">
+                {!isMobile && selectedProduct && (
+                    <ProductDetailCard selectedProduct={selectedProduct} />
+                )}
+            </div>
 
             <div>
                 <div className="flex gap-2 m-4">
@@ -53,6 +55,7 @@ export default function ProductList({ products }: Props) {
                             label={c}
                             onClick={() => handleClick(c)}
                             isActive={isActiveCategory === c}
+                            variant="SECONDARY"
                         />
                     ))}
                 </div>
@@ -60,10 +63,12 @@ export default function ProductList({ products }: Props) {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 m-4">
                     {filteredProducts.map((prod) => (
                         isMobile ? (
+                            // mobile view
                             <Link key={prod.id} href={`/products/${prod.id}`}>
                                 <Card product={prod} />
                             </Link>
                         ) : (
+                            // large screen view
                             <div key={prod.id} onClick={() => setSelectedProduct(prod)}>
                                 <Card product={prod} />
                             </div>

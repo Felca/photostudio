@@ -1,6 +1,6 @@
 
 type ButtonProps = {
-    label: string
+    label?: string
     onClick?: () => void
     classname?: string
     children?: React.ReactNode
