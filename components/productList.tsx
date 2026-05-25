@@ -41,7 +41,7 @@ export default function ProductList({ products }: Props) {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="max-w-2/3">
+            <div className="min-w-1/2 max-w-1/2">
                 {!isMobile && selectedProduct && (
                     <ProductDetailCard selectedProduct={selectedProduct} />
                 )}

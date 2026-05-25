@@ -14,7 +14,6 @@ export default function Nav() {
                                 key={content.id}
                                 className="tracking-tight cursor-pointer"
                             >
-                                {/* <Link href={content.href} className="hover:underline">{content.title}</Link> */}
                                 <Link href={`${content.href}`} className="hover:underline">{content.title}</Link>
                             </div>
                         )))}

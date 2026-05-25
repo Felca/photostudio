@@ -28,7 +28,7 @@ export default function ProductDetailCard({ selectedProduct }: Props) {
                 <div className="my-10 flex items-end gap-5 border-b pb-5">
                     <div className="flex flex-col gap-2">
                         <p className="text-6xl font-mono">{selectedProduct.name}</p>
-                        <div className="flex justify-center">
+                        <div className="flex justify-center my-2">
                             <Image
                                 src={'/placeholder.png'}
                                 alt={'product-image'}

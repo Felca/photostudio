@@ -8,25 +8,43 @@ export interface Product {
   image_url?: string
 }
 
-// product, count -> orderItem -> orders
-export type OrderItem = {
-  product: Product | null
-  count: number
+export interface Categories {
+  id: number
+  name: string
 }
-export interface Order {
-  id: string
-  product_items: OrderItem[]
-  // created_at?: string
+export interface Products {
+  id: number
+  category_id: number
+  name: string
+  description?: string
 }
-
-export interface User {
-  id: string
-  orders: Order[]
+export interface ProductVariants {
+  id: number
+  product_id: number
+  variant_name?: string
+  size_label?: string
+  dimensions?: string
+  price: number
+  stock?: number
+}
+export interface ProductCustomizationGroups {
+  id: number
+  product_id: number
+}
+export interface CustomizationGroups {
+  id: number
+  name: string
+}
+export interface CustomizationOptions {
+  id: number
+  group_id: number // customization group id
+  option_value: string
+  extra_price?: number
 }
 
 export async function getProducts(): Promise<Product[]> {
   const supabase = await createClient()
-  const { data, error } = await supabase.from('products').select()
+  const { data, error } = await supabase.from('test_products').select()
 
   if (error) throw error
   console.log(data)
@@ -38,13 +56,13 @@ export async function getProductById(product_id: string) {
   const supabase = await createClient()
 
   const { data, error } = await supabase
-    .from('products')
+    .from('test_products')
     .select()
     .eq('id', product_id)
     .single()
 
   if (error) throw error
-    console.log(data)
+  console.log(data)
 
   return data as Product
 }
